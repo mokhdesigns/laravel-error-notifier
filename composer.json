@@ -1,0 +1,16 @@
+{
+    "name": "syntech/notifier",
+    "type": "library",
+    "license": "Mit",
+    "autoload": {
+        "psr-4": {
+            "Syntech\\Notifier\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "syntech"
+        }
+    ],
+    "require": {}
+}
