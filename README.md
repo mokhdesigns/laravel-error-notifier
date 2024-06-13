@@ -9,7 +9,7 @@
 You can install the package via Composer. Run the following command in your Laravel application's root directory:
 
 ```bash
-composer require syntech/laravel-error-notifier
+composer require syntech/notifier
 
 Step 2: Publish the Configuration File
 
