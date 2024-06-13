@@ -1,16 +1,30 @@
 {
-    "name": "syntech/notifier",
+    "name": "syntech/laravel-error-notifier",
+    "description": "A Laravel package to send email notifications on errors",
     "type": "library",
-    "license": "Mit",
-    "autoload": {
-        "psr-4": {
-            "Syntech\\Notifier\\": "src/"
-        }
-    },
+    "license": "MIT",
     "authors": [
         {
-            "name": "syntech"
+            "name": "Syntech",
+            "email": "info@syntecheg.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.4",
+        "illuminate/support": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SyntechNotifier\\LaravelErrorNotifier\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SyntechNotifier\\LaravelErrorNotifier\\LaravelErrorNotifierServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
