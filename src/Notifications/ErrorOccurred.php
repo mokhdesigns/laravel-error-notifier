@@ -1,6 +1,6 @@
 <?php
 
-namespace Syntechnotifier\Notifications;
+namespace Syntech\Notifier\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

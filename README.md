@@ -11,16 +11,17 @@ You can install the package via Composer. Run the following command in your Lara
 ```bash
 composer require syntech/notifier
 
-Step 2: Publish the Configuration File
+### Step 2: Publish the Configuration File
 
-Publish the package's configuration file to customize the email recipient for error notifications:
+Publish the packages configuration file to customize the email recipient for error notifications:
 
-bash
+```bash
 
-php artisan vendor:publish --provider="SyntechNotifier\LaravelErrorNotifier\LaravelErrorNotifierServiceProvider"
+php artisan vendor:publish --provider="Syntech\Notifier\LaravelErrorNotifierServiceProvider"
 
 This command will create a configuration file at config/error-notifier.php.
-Step 3: Configure the Email Recipient
+
+### Step 3: Configure the Email Recipient
 
 Open the newly created configuration file config/error-notifier.php and set the email address where error notifications should be sent:
 
@@ -36,7 +37,7 @@ env
 
 ERROR_NOTIFIER_EMAIL=your-email@example.com
 
-Step 4: Configure Mail Settings
+### Step 4: Configure Mail Settings
 
 Ensure your Laravel application's mail settings are correctly configured in the .env file. Here's an example configuration using SMTP:
 
@@ -52,7 +53,8 @@ MAIL_FROM_ADDRESS=hello@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 
 Replace these settings with your actual mail server details.
-Step 5: Update Logging Configuration
+
+### Step 5: Update Logging Configuration
 
 Add the custom log channel to your application's config/logging.php file:
 
@@ -72,7 +74,7 @@ return [
     ],
 ];
 
-Step 6: Update Exception Handler
+### Step 6: Update Exception Handler
 
 Open the app/Exceptions/Handler.php file and update the report method to log errors to the email channel:
 
@@ -100,8 +102,7 @@ Example
 
 Here is an example of what the email notification might look like:
 
-yaml
-
+ 
 Subject: Error Occurred in Your Application
 
 An error has occurred:
