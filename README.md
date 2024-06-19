@@ -1,48 +1,46 @@
 # Laravel Error Notifier
 
-**Laravel Error Notifier** is a Laravel package that sends email notifications whenever an error occurs in your Laravel application. It helps you monitor and address issues promptly.
+Laravel Error Notifier is a Laravel package that sends email notifications whenever an error occurs in your Laravel application. It helps you monitor and address issues promptly.
 
 ## Installation
 
-### Step 1: Install via Composer
+## Step 1: Install via Composer
 
 You can install the package via Composer. Run the following command in your Laravel application's root directory:
 
 ```bash
 composer require syntech/notifier
 
-### Step 2: Publish the Configuration File
-
-Publish the packages configuration file to customize the email recipient for error notifications:
+## Step 2: Publish the Configuration File
 
 ```bash
+Publish the package's configuration file to customize the email recipient for error notifications:
 
+```bash
 php artisan vendor:publish --provider="Syntech\Notifier\LaravelErrorNotifierServiceProvider"
 
 This command will create a configuration file at config/error-notifier.php.
 
-### Step 3: Configure the Email Recipient
+## Step 3: Configure the Email Recipient
 
 Open the newly created configuration file config/error-notifier.php and set the email address where error notifications should be sent:
 
-php
-
+  ```php
 return [
     'email' => env('ERROR_NOTIFIER_EMAIL', 'admin@example.com'),
 ];
 
-Ensure you set the ERROR_NOTIFIER_EMAIL environment variable in your .env file:
+```
 
-env
+Ensure you set the ERROR_NOTIFIER_EMAIL environment variable in your .env file:
 
 ERROR_NOTIFIER_EMAIL=your-email@example.com
 
-### Step 4: Configure Mail Settings
+## Step 4: Configure Mail Settings
 
 Ensure your Laravel application's mail settings are correctly configured in the .env file. Here's an example configuration using SMTP:
 
-env
-
+  ```php
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.mailtrap.io
 MAIL_PORT=2525
@@ -52,14 +50,16 @@ MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=hello@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 
+```
+
+
 Replace these settings with your actual mail server details.
 
-### Step 5: Update Logging Configuration
+## Step 5: Update Logging Configuration
 
 Add the custom log channel to your application's config/logging.php file:
 
-php
-
+  ```php
 use SyntechNotifier\LaravelErrorNotifier\Logging\CustomHandler;
 
 return [
@@ -73,13 +73,14 @@ return [
         ],
     ],
 ];
+```
 
-### Step 6: Update Exception Handler
+
+## Step 6: Update Exception Handler
 
 Open the app/Exceptions/Handler.php file and update the report method to log errors to the email channel:
 
-php
-
+  ```php
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -91,6 +92,7 @@ public function report(Throwable $exception)
         Log::channel('email')->error('An error occurred', ['exception' => $exception]);
     }
 }
+```
 
 Usage
 
@@ -102,7 +104,7 @@ Example
 
 Here is an example of what the email notification might look like:
 
- 
+
 Subject: Error Occurred in Your Application
 
 An error has occurred:
@@ -114,6 +116,7 @@ An error has occurred:
   #1 {main}
 
 Please address this issue promptly.
+
 
 Contributing
 
@@ -131,3 +134,6 @@ This package is open-source software licensed under the MIT license.
 Support
 
 If you encounter any issues or have questions, please feel free to open an issue on the GitHub repository.
+
+
+
