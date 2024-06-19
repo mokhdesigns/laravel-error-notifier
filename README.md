@@ -10,14 +10,17 @@ You can install the package via Composer. Run the following command in your Lara
 
 ```bash
 composer require syntech/notifier
+```
 
 ## Step 2: Publish the Configuration File
 
 ```bash
 Publish the package's configuration file to customize the email recipient for error notifications:
+```
 
 ```bash
 php artisan vendor:publish --provider="Syntech\Notifier\LaravelErrorNotifierServiceProvider"
+```
 
 This command will create a configuration file at config/error-notifier.php.
 
@@ -94,7 +97,7 @@ public function report(Throwable $exception)
 }
 ```
 
-Usage
+### Usage
 
 Once installed and configured, the package will automatically send an email notification whenever an error occurs in your Laravel application.
 Customizing the Notification Email
